@@ -1,29 +1,4 @@
 
-// $(document).ready(function(){
-//     $("#submit-form").validate({
-//         rules:{
-//             name:{
-//                 minlength:2,
-//             },
-//             email:{
-//                 required:true,
-//                 email:true
-//             },
-//             place:{
-//                 required:true
-//             },
-//             telephone:{
-//                 required:true,
-//                  minlength:10
-//             },
-//         },
-//         messages:{name:{
-//             required:"Pls enter your name",
-//             minlength:"Enter atleast 2 Characters"
-//             }}
-//         })
-       
-//     })
 
 var nameError = document.getElementById('name-error');
 var emailError = document.getElementById('email-error');
