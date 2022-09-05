@@ -7,7 +7,7 @@ var telError = document.getElementById('tel-error');
 var messageError = document.getElementById('message-error');
 var submitError = document.getElementById('submit-error');
 
-
+var name,email,message,Tel,subject;
 function validateName() {
     var name=document.getElementById('name').value.trim();  
 
@@ -17,7 +17,7 @@ function validateName() {
         return false;
     }
 
-    if (!name.match(/^[A-Za-z' ']*$/)){
+    if (!name.match(/^[A-Za-z ]*$/)){
         nameError.innerHTML='Write a FullName';
         nameError.style.color='red'
         return false;
@@ -60,7 +60,8 @@ function validateMsg() {
 }
 function validateTel() {
     var Tel =document.getElementById('telephone').value.trim();
-        if(Tel.match(/^[0-9]+$/) && Tel.length>10)
+    
+        if(Tel.match(/^[0-9]+$/) && Tel.length>10 && Tel.length<12)
         {
             telError.innerHTML='Message is valid';
             telError.style.color='green'
@@ -75,7 +76,7 @@ function validateTel() {
     }
     function validateSubject() {
         var subject=document.getElementById('subject').value.trim();  
-    
+
         if (subject.length==0) {
             subjectError.innerHTML='This field is Required';
             subjectError.style.color='red'
@@ -83,13 +84,26 @@ function validateTel() {
         }
     
         if (!subject.match(/^[A-Za-z ]*$/)){
-            subjectError.innerHTML='Write a FullName';
+            subjectError.innerHTML='Enter valid subject';
             subjectError.style.color='red'
             return false;
         }
         
-        subjectError.innerHTML='Name is valid';
+        subjectError.innerHTML='Subject is valid';
         subjectError.style.color='green'
         return true;
     }
+    // function submitClick()
+    // {
+    //     var name=document.getElementById('name').value.trim(); 
+    //     var Tel =document.getElementById('telephone').value.trim();
+    //     var subject=document.getElementById('subject').value.trim(); 
+    //     var message =document.getElementById('message').value.trim();
 
+    //     if(name.length==0 || email.length==0 || subject.length==0 || Tel.length==0 || message.length==0)
+    //     {
+    //         submitError.innerHTML="Pls Enter All the Fields Above";
+    //         subjectError.style.color='green'
+    //         return false
+    //     }
+    // }

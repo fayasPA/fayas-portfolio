@@ -378,7 +378,7 @@
           <span id=message-error></span>
         </div>
         
-        <div class="text-center pt-4"><button type="submit">Send Message</button>
+        <div class="text-center pt-4" ><button onclick="submitClick()" type="submit" >Send Message</button>
         <span id=submit-error></span>
         </div>
       </form>
@@ -409,8 +409,9 @@
   <script>
     $("#submit-form").submit((e)=>{
         e.preventDefault()
+        if(validateName() && validateEmail() && validateSubject() && validateTel() && validateMsg()){
         $.ajax({
-            url:"https://script.google.com/macros/s/AKfycbyZluAnGxiPsES6TQU8lOHtsOat77_frlzb_GXoB-lKtBBed6N_bMk4uBjp5SW2d41P/exec",
+            url:"https://script.google.com/macros/s/AKfycbxbFysN-A7D3Ypc9W1RnAeUQD1IiD4eH82GZB6X6QGb7ZMaW4Dk6RQZesJhT-JE_Ezb/exec",
             data:$("#submit-form").serialize(),
             method:"post",
             success:function (response){
@@ -418,10 +419,15 @@
                 window.location.reload()
             },
             error:function (err){
+              
                 alert("Something Error")
 
             }
         })
+      }
+      else{
+        alert("Validation ERROR")
+      }
     })
 </script>
 <!--  -->
